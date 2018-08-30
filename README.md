@@ -1,34 +1,20 @@
-![HashiCorp's Terraform](https://cultivatedops-static.s3.amazonaws.com/thirdparty/terraform/logo-50.png)
+# azurerm lb
+The module creates Load Balancers on AzureRM
 
-This repository is a [Terraform](https://terraform.io/) Module for azurerm virtual machine instances
+## Inputs
 
-The module creates AzureRM virtual machine instances
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-----:|:-----:|
+| dcos_role | Specify dcos role for nsg configuration | string | - | yes |
+| hostname_format | Format the hostname inputs are index+1, region, name_prefix | string | `nsg-%[1]d-%[2]s` | no |
+| location | Location (region) | string | - | yes |
+| name_prefix | Cluster Name | string | - | yes |
+| network_security_group_id | Security Group Id | string | - | yes |
+| resource_group_name | Name of the azure resource group | string | - | yes |
+| tags | Add special tags to the resources created by this module | map | `<map>` | no |
 
-# Usage
+## Outputs
 
-Add the module to your Terraform resources like so:
-
-```
-module "terraform-azurerm-instance" {
-  source = "./terraform-module-terraform-azurerm-instance"
-  arg1 = "foo"
-}
-```
-
-Then, load the module using `terraform get`.
-
-# Options
-
-This module supports a number of configuration options:
-
-| option    | description |
-|-----------|-|
-| `arg1`    | argument #1 |
-
-# Outputs
-
-This module supports a number of outputs:
-
-| output   | description |
-|----------|-|
-| `output` | value of the `resource.name.attr` resource  |
+| Name | Description |
+|------|-------------|
+| elb_address |  |

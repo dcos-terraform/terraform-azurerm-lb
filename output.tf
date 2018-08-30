@@ -1,6 +1,5 @@
-##
-# outputs for `resource`
-##
-output "arg1" {
-  value = "${resource.name.arg1}"
+output "elb_address" {
+  value = "${element(concat(azurerm_public_ip.master_load_balancer_public_ip.*.fqdn,
+                            azurerm_public_ip.public_agent_load_balancer_public_ip.*.fqdn,
+                            list("")), 0)}"
 }
