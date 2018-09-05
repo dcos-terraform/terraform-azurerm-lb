@@ -10,7 +10,9 @@ variable "hostname_format" {
 variable "resource_group_name" {}
 
 # Security Group Id
-variable "network_security_group_id" {}
+variable "network_security_group_id" {
+  default = ""
+}
 
 # Specify dcos role for nsg configuration
 variable "dcos_role" {}
