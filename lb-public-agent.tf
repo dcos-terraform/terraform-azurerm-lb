@@ -18,7 +18,6 @@ resource "azurerm_lb" "public_agent_public_load_balancer" {
   resource_group_name = "${var.resource_group_name}"
 
   frontend_ip_configuration {
-    count                = "${var.dcos_role == "public-agent" ? 1 : 0 }"
     name                 = "${format(var.hostname_format, count.index + 1, var.name_prefix)}-public-agent-ip-config"
     public_ip_address_id = "${azurerm_public_ip.public_agent_load_balancer_public_ip.id}"
   }

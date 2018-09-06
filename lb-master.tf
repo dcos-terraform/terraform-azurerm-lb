@@ -32,7 +32,6 @@ resource "azurerm_lb" "master_public_load_balancer" {
   resource_group_name = "${var.resource_group_name}"
 
   frontend_ip_configuration {
-    count                = "${var.dcos_role == "master" ? 1 : 0 }"
     name                 = "${format(var.hostname_format, count.index + 1, var.name_prefix)}-public-ip-config"
     public_ip_address_id = "${azurerm_public_ip.master_load_balancer_public_ip.id}"
   }
@@ -49,7 +48,6 @@ resource "azurerm_lb" "master_internal_load_balancer" {
   resource_group_name = "${var.resource_group_name}"
 
   frontend_ip_configuration {
-    count                         = "${var.dcos_role == "master" ? 1 : 0 }"
     name                          = "${format(var.hostname_format, count.index + 1, var.name_prefix)}-private-ip-config"
     subnet_id                     = "${var.network_security_group_id}"
     private_ip_address_allocation = "dynamic"
