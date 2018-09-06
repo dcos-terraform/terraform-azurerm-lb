@@ -3,7 +3,7 @@ variable "name_prefix" {}
 
 # Format the hostname inputs are index+1, region, name_prefix
 variable "hostname_format" {
-  default = "nsg-%[1]d-%[2]s"
+  default = "lb-%[1]d-%[2]s"
 }
 
 # Name of the azure resource group
