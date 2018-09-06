@@ -14,6 +14,11 @@ variable "network_security_group_id" {
   default = ""
 }
 
+# Subnet ID
+variable "subnet_id" {
+  default = ""
+}
+
 # Specify dcos role for nsg configuration
 variable "dcos_role" {}
 

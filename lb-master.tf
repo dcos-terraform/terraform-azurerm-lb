@@ -49,7 +49,7 @@ resource "azurerm_lb" "master_internal_load_balancer" {
 
   frontend_ip_configuration {
     name                          = "${format(var.hostname_format, count.index + 1, var.name_prefix)}-private-ip-config"
-    subnet_id                     = "${var.network_security_group_id}"
+    subnet_id                     = "${var.subnet_id}"
     private_ip_address_allocation = "dynamic"
   }
 
