@@ -1,5 +1,6 @@
 # Public IP addresses for the Public Front End load Balancer
 resource "azurerm_public_ip" "public_agent_load_balancer_public_ip" {
+  count                        = "${var.dcos_role == "public-agent" ? 1 : 0 }"
   name                         = "${format(var.hostname_format, var.name_prefix)}-public-lb-ip"
   location                     = "${var.location}"
   resource_group_name          = "${var.resource_group_name}"

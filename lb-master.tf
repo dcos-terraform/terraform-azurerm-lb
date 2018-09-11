@@ -1,5 +1,6 @@
 # Public IP addresses for the Public Front End load Balancer
 resource "azurerm_public_ip" "master_load_balancer_public_ip" {
+  count                        = "${var.dcos_role == "master" ? 1 : 0 }"
   name                         = "${format(var.hostname_format, var.name_prefix)}-master-lb-ip"
   location                     = "${var.location}"
   resource_group_name          = "${var.resource_group_name}"
