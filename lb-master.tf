@@ -4,7 +4,7 @@ resource "azurerm_public_ip" "master_load_balancer_public_ip" {
   location                     = "${var.location}"
   resource_group_name          = "${var.resource_group_name}"
   public_ip_address_allocation = "dynamic"
-  domain_name_label            = "master-pub-lb-${format(var.hostname_format, var.name_prefix)}"
+  domain_name_label            = "master-pub-${format(var.hostname_format, var.name_prefix)}"
 
   tags = "${merge(var.tags, map("Name", format(var.hostname_format, var.location, var.name_prefix),
                                 "Cluster", var.name_prefix))}"
