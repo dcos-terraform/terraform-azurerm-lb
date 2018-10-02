@@ -46,3 +46,13 @@ variable "additional_rules" {
   description = "List of additional rules"
   default     = []
 }
+
+variable "internal" {
+  description = "This LB is internal only"
+  default     = false
+}
+
+variable "subnet_id" {
+  description = "Subnet ID"
+  default     = ""
+}

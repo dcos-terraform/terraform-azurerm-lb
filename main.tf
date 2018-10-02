@@ -49,6 +49,7 @@ locals {
 }
 
 resource "azurerm_public_ip" "public_ip" {
+  count                        = "${var.internal ? 0 : 1}"
   name                         = "${local.lb_name}-ip"
   location                     = "${var.location}"
   resource_group_name          = "${var.resource_group_name}"
@@ -60,13 +61,15 @@ resource "azurerm_public_ip" "public_ip" {
 
 # Front End Load Balancer
 resource "azurerm_lb" "load_balancer" {
-  name                = "${local.lb_name}-pub-mas-elb"
+  name                = "${local.lb_name}"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
 
   frontend_ip_configuration {
-    name                 = "${local.lb_name}-public-ip-config"
-    public_ip_address_id = "${azurerm_public_ip.public_ip.id}"
+    name                          = "${local.lb_name}-public-ip-config"
+    public_ip_address_id          = "${var.internal ? "" : element(concat(azurerm_public_ip.public_ip.*.id,list("")),0)}"
+    private_ip_address_allocation = "dynamic"
+    subnet_id                     = "${var.internal ? var.subnet_id : ""}"
   }
 
   tags = "${local.merged_tags}"
