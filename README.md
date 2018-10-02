@@ -16,7 +16,7 @@ module "dcos-lbs" {
 
   location = "North Europe"
   resource_group_name = "my-resource-group"
-  additional_listeners = [{
+  additional_rules = [{
      frontend_port = 8080
      backend_port  = 80
   }]
