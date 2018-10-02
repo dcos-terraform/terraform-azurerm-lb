@@ -21,6 +21,7 @@ module "dcos-lbs" {
      backend_port  = 80
   }]
 }
+```
 
 
 ## Inputs

@@ -22,6 +22,7 @@
  *      backend_port  = 80
  *   }]
  * }
+ *```
  */
 
 provider "azurerm" {}
