@@ -14,7 +14,7 @@ module "dcos-lbs" {
 
   cluster_name = "production"
 
-  location = ["North Europe"]
+  location = "North Europe"
   resource_group_name = "my-resource-group"
   additional_listeners = [{
      frontend_port = 8080
