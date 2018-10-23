@@ -30,12 +30,12 @@ module "dcos-lbs" {
 |------|-------------|:----:|:-----:|:-----:|
 | additional_rules | List of additional rules | string | `<list>` | no |
 | cluster_name | Name of the DC/OS cluster | string | - | yes |
-| internal | This LB is internal only | string | `false` | no |
+| internal | This ELB is internal only | string | `false` | no |
 | lb_name_format | Printf style format for naming the LB. (input cluster_name) | string | `lb-%[1]s` | no |
-| location | Azure location | string | - | yes |
+| location | Azure Region | string | - | yes |
 | probe | Main probe to check for node health | map | `<map>` | no |
-| resource_group_name | resource group name | string | - | yes |
-| rules | List of rules. By default HTTP and HTTPS are set. If set it overrides the default listeners. | string | `<list>` | no |
+| resource_group_name | Name of the azure resource group | string | - | yes |
+| rules | List of rules. By default HTTP and HTTPS are set. If set it overrides the default rules. | string | `<list>` | no |
 | subnet_id | Subnet ID | string | `` | no |
 | tags | Add custom tags to all resources | map | `<map>` | no |
 
