@@ -10,12 +10,12 @@ variable "lb_name_format" {
 
 # Name of the azure resource group
 variable "resource_group_name" {
-  description = "resource group name"
+  description = "Name of the azure resource group"
 }
 
 # Location (region)
 variable "location" {
-  description = "Azure location"
+  description = "Azure Region"
 }
 
 variable "tags" {
@@ -38,7 +38,7 @@ variable "probe" {
 }
 
 variable "rules" {
-  description = "List of rules. By default HTTP and HTTPS are set. If set it overrides the default listeners."
+  description = "List of rules. By default HTTP and HTTPS are set. If set it overrides the default rules."
   default     = []
 }
 
@@ -48,7 +48,7 @@ variable "additional_rules" {
 }
 
 variable "internal" {
-  description = "This LB is internal only"
+  description = "This ELB is internal only"
   default     = false
 }
 
