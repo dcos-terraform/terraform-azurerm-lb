@@ -11,7 +11,7 @@
  *```hcl
  * module "dcos-lbs" {
  *   source  = "dcos-terraform/lb/azurerm"
- *   version = "~> 0.1"
+ *   version = "~> 0.1.0"
  *
  *   cluster_name = "production"
  *
