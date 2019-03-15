@@ -8,6 +8,16 @@ variable "lb_name_format" {
   default     = "lb-%[1]s"
 }
 
+variable "instance_nic_ids" {
+  description = "List of instance nic ids created by this module"
+  type        = "list"
+}
+
+variable "ip_configuration_names" {
+  description = "List of ip configuration names associated with the instance nic ids"
+  type        = "list"
+}
+
 # Name of the azure resource group
 variable "resource_group_name" {
   description = "Name of the azure resource group"
@@ -16,6 +26,11 @@ variable "resource_group_name" {
 # Location (region)
 variable "location" {
   description = "Azure Region"
+}
+
+# Number of Instance
+variable "num" {
+  description = "How many instances should be created"
 }
 
 variable "tags" {

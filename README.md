@@ -30,9 +30,12 @@ module "dcos-lbs" {
 |------|-------------|:----:|:-----:|:-----:|
 | additional_rules | List of additional rules | string | `<list>` | no |
 | cluster_name | Name of the DC/OS cluster | string | - | yes |
+| instance_nic_ids | List of instance nic ids created by this module | list | - | yes |
 | internal | This ELB is internal only | string | `false` | no |
+| ip_configuration_names | List of ip configuration names associated with the instance nic ids | list | - | yes |
 | lb_name_format | Printf style format for naming the LB. (input cluster_name) | string | `lb-%[1]s` | no |
 | location | Azure Region | string | - | yes |
+| num | How many instances should be created | string | - | yes |
 | probe | Main probe to check for node health | map | `<map>` | no |
 | resource_group_name | Name of the azure resource group | string | - | yes |
 | rules | List of rules. By default HTTP and HTTPS are set. If set it overrides the default rules. | string | `<list>` | no |
