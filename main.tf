@@ -49,12 +49,12 @@ locals {
 }
 
 resource "azurerm_public_ip" "public_ip" {
-  count                        = "${var.internal ? 0 : 1}"
-  name                         = "${local.lb_name}-ip"
-  location                     = "${var.location}"
-  resource_group_name          = "${var.resource_group_name}"
-  public_ip_address_allocation = "dynamic"
-  domain_name_label            = "${local.lb_name}-ip"
+  count               = "${var.internal ? 0 : 1}"
+  name                = "${local.lb_name}-ip"
+  location            = "${var.location}"
+  resource_group_name = "${var.resource_group_name}"
+  allocation_method   = "Dynamic"
+  domain_name_label   = "${local.lb_name}-ip"
 
   tags = "${local.merged_tags}"
 }
@@ -68,7 +68,7 @@ resource "azurerm_lb" "load_balancer" {
   frontend_ip_configuration {
     name                          = "${local.lb_name}-public-ip-config"
     public_ip_address_id          = "${var.internal ? "" : element(concat(azurerm_public_ip.public_ip.*.id,list("")),0)}"
-    private_ip_address_allocation = "dynamic"
+    private_ip_address_allocation = "Dynamic"
     subnet_id                     = "${var.internal ? var.subnet_id : ""}"
   }
 
@@ -80,6 +80,13 @@ resource "azurerm_lb_backend_address_pool" "backend_pool" {
   name                = "${local.lb_name}-public_backend_address_pool"
   resource_group_name = "${var.resource_group_name}"
   loadbalancer_id     = "${azurerm_lb.load_balancer.id}"
+}
+
+resource "azurerm_network_interface_backend_address_pool_association" "this" {
+  count                   = "${var.num}"
+  network_interface_id    = "${element(var.instance_nic_ids, count.index)}"
+  ip_configuration_name   = "${element(var.ip_configuration_names, count.index)}"
+  backend_address_pool_id = "${azurerm_lb_backend_address_pool.backend_pool.id}"
 }
 
 # Load Balancer Rule
