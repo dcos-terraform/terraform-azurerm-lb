@@ -10,7 +10,7 @@ EXAMPLE
 ```hcl
 module "dcos-lbs" {
   source  = "dcos-terraform/lb/azurerm"
-  version = "~> 0.1.0"
+  version = "~> 0.2.0"
 
   cluster_name = "production"
 
@@ -23,29 +23,28 @@ module "dcos-lbs" {
 }
 ```
 
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| additional_rules | List of additional rules | string | `<list>` | no |
-| cluster_name | Name of the DC/OS cluster | string | - | yes |
-| instance_nic_ids | List of instance nic ids created by this module | list | - | yes |
-| internal | This ELB is internal only | string | `false` | no |
-| ip_configuration_names | List of ip configuration names associated with the instance nic ids | list | - | yes |
-| lb_name_format | Printf style format for naming the LB. (input cluster_name) | string | `lb-%[1]s` | no |
-| location | Azure Region | string | - | yes |
-| num | How many instances should be created | string | - | yes |
+| additional\_rules | List of additional rules | list | `<list>` | no |
+| cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
+| instance\_nic\_ids | List of instance nic ids created by this module | list | n/a | yes |
+| internal | This ELB is internal only | string | `"false"` | no |
+| ip\_configuration\_names | List of ip configuration names associated with the instance nic ids | list | n/a | yes |
+| lb\_name\_format | Printf style format for naming the LB. (input cluster_name) | string | `"lb-%[1]s"` | no |
+| location | Azure Region | string | n/a | yes |
+| num | How many instances should be created | string | n/a | yes |
 | probe | Main probe to check for node health | map | `<map>` | no |
-| resource_group_name | Name of the azure resource group | string | - | yes |
-| rules | List of rules. By default HTTP and HTTPS are set. If set it overrides the default rules. | string | `<list>` | no |
-| subnet_id | Subnet ID | string | `` | no |
+| resource\_group\_name | Name of the azure resource group | string | n/a | yes |
+| rules | List of rules. By default HTTP and HTTPS are set. If set it overrides the default rules. | list | `<list>` | no |
+| subnet\_id | Subnet ID | string | `""` | no |
 | tags | Add custom tags to all resources | map | `<map>` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| backend_address_pool | Public backend address pool ID |
-| lb_address | LB Address |
+| backend\_address\_pool | backend address pool |
+| lb\_address | lb address |
 
