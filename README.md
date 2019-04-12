@@ -27,16 +27,16 @@ module "dcos-lbs" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| additional\_rules | List of additional rules | list | `<list>` | no |
 | cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
 | instance\_nic\_ids | List of instance nic ids created by this module | list | n/a | yes |
-| internal | This ELB is internal only | string | `"false"` | no |
 | ip\_configuration\_names | List of ip configuration names associated with the instance nic ids | list | n/a | yes |
-| lb\_name\_format | Printf style format for naming the LB. (input cluster_name) | string | `"lb-%[1]s"` | no |
 | location | Azure Region | string | n/a | yes |
 | num | How many instances should be created | string | n/a | yes |
-| probe | Main probe to check for node health | map | `<map>` | no |
 | resource\_group\_name | Name of the azure resource group | string | n/a | yes |
+| additional\_rules | List of additional rules | list | `<list>` | no |
+| internal | This ELB is internal only | string | `"false"` | no |
+| lb\_name\_format | Printf style format for naming the LB. (input cluster_name) | string | `"lb-%[1]s"` | no |
+| probe | Main probe to check for node health | map | `<map>` | no |
 | rules | List of rules. By default HTTP and HTTPS are set. If set it overrides the default rules. | list | `<list>` | no |
 | subnet\_id | Subnet ID | string | `""` | no |
 | tags | Add custom tags to all resources | map | `<map>` | no |
