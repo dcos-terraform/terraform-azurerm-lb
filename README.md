@@ -23,26 +23,25 @@ module "dcos-lbs" {
 }
 ```
 
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| additional_rules | List of additional rules | string | `<list>` | no |
-| cluster_name | Name of the DC/OS cluster | string | - | yes |
-| internal | This ELB is internal only | string | `false` | no |
-| lb_name_format | Printf style format for naming the LB. (input cluster_name) | string | `lb-%[1]s` | no |
-| location | Azure Region | string | - | yes |
+| cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
+| location | Azure Region | string | n/a | yes |
+| resource\_group\_name | Name of the azure resource group | string | n/a | yes |
+| additional\_rules | List of additional rules | list | `<list>` | no |
+| internal | This ELB is internal only | string | `"false"` | no |
+| lb\_name\_format | Printf style format for naming the LB. (input cluster_name) | string | `"lb-%[1]s"` | no |
 | probe | Main probe to check for node health | map | `<map>` | no |
-| resource_group_name | Name of the azure resource group | string | - | yes |
-| rules | List of rules. By default HTTP and HTTPS are set. If set it overrides the default rules. | string | `<list>` | no |
-| subnet_id | Subnet ID | string | `` | no |
+| rules | List of rules. By default HTTP and HTTPS are set. If set it overrides the default rules. | list | `<list>` | no |
+| subnet\_id | Subnet ID | string | `""` | no |
 | tags | Add custom tags to all resources | map | `<map>` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| backend_address_pool | Public backend address pool ID |
-| lb_address | LB Address |
+| backend\_address\_pool | backend address pool |
+| lb\_address | lb address |
 
