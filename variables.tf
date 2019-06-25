@@ -2,6 +2,11 @@ variable "cluster_name" {
   description = "Name of the DC/OS cluster"
 }
 
+variable "name_prefix" {
+  description = "Name Prefix"
+  default     = ""
+}
+
 # Format the hostname inputs are index+1, region, name_prefix
 variable "lb_name_format" {
   description = "Printf style format for naming the LB. (input cluster_name)"
@@ -18,17 +23,14 @@ variable "ip_configuration_names" {
   type        = "list"
 }
 
-# Name of the azure resource group
 variable "resource_group_name" {
   description = "Name of the azure resource group"
 }
 
-# Location (region)
 variable "location" {
   description = "Azure Region"
 }
 
-# Number of Instance
 variable "num" {
   description = "How many instances should be created"
 }
