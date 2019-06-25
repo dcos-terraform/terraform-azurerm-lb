@@ -36,6 +36,7 @@ module "dcos-lbs" {
 | additional\_rules | List of additional rules | list | `<list>` | no |
 | internal | This ELB is internal only | string | `"false"` | no |
 | lb\_name\_format | Printf style format for naming the LB. (input cluster_name) | string | `"lb-%[1]s"` | no |
+| name\_prefix | Name Prefix | string | `""` | no |
 | probe | Main probe to check for node health | map | `<map>` | no |
 | rules | List of rules. By default HTTP and HTTPS are set. If set it overrides the default rules. | list | `<list>` | no |
 | subnet\_id | Subnet ID | string | `""` | no |
