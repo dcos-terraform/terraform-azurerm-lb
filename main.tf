@@ -49,7 +49,7 @@ locals {
 }
 
 resource "azurerm_public_ip" "public_ip" {
-  count               = "${var.internal ? 0 : 1}"
+  count               = "${var.num == 0 ? 0 : (var.internal ? 0 : 1)}"
   name                = "${local.lb_name}-ip"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
@@ -61,6 +61,7 @@ resource "azurerm_public_ip" "public_ip" {
 
 # Front End Load Balancer
 resource "azurerm_lb" "load_balancer" {
+  count               = "${var.num == 0 ? 0 : 1}"
   name                = "${local.lb_name}"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group_name}"
@@ -77,6 +78,7 @@ resource "azurerm_lb" "load_balancer" {
 
 # Back End Address Pool for Public and Private Loadbalancers
 resource "azurerm_lb_backend_address_pool" "backend_pool" {
+  count               = "${var.num == 0 ? 0 : 1}"
   name                = "${local.lb_name}-public_backend_address_pool"
   resource_group_name = "${var.resource_group_name}"
   loadbalancer_id     = "${azurerm_lb.load_balancer.id}"
@@ -91,7 +93,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "this" {
 
 # Load Balancer Rule
 resource "azurerm_lb_rule" "load_balancer_rule" {
-  count               = "${length(local.final_rules)}"
+  count               = "${var.num == 0 ? 0 : length(local.final_rules)}"
   resource_group_name = "${var.resource_group_name}"
   loadbalancer_id     = "${azurerm_lb.load_balancer.id}"
 
@@ -108,6 +110,7 @@ resource "azurerm_lb_rule" "load_balancer_rule" {
 }
 
 resource "azurerm_lb_probe" "load_balancer_http_probe" {
+  count               = "${var.num == 0 ? 0 : 1}"
   resource_group_name = "${var.resource_group_name}"
   loadbalancer_id     = "${azurerm_lb.load_balancer.id}"
   name                = "${local.lb_name}-probe"
