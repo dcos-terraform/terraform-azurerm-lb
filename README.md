@@ -29,7 +29,6 @@ module "dcos-lbs" {
 |------|-------------|:----:|:-----:|:-----:|
 | cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
 | instance\_nic\_ids | List of instance nic ids created by this module | list | n/a | yes |
-| ip\_configuration\_names | List of ip configuration names associated with the instance nic ids | list | n/a | yes |
 | location | Azure Region | string | n/a | yes |
 | num | How many instances should be created | string | n/a | yes |
 | resource\_group\_name | Name of the azure resource group | string | n/a | yes |
