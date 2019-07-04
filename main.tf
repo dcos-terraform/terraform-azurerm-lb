@@ -97,7 +97,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "this" {
   ip_configuration_name   = "${element(data.azurerm_network_interface.instance.ip_configuration.*.name, 0)}"
   backend_address_pool_id = "${azurerm_lb_backend_address_pool.backend_pool.id}"
 
-  depends_on = ["azurerm_network_interface.instance"]
+  depends_on = ["data.azurerm_network_interface.instance"]
 }
 
 # Load Balancer Rule
