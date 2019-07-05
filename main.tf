@@ -87,7 +87,7 @@ resource "azurerm_lb_backend_address_pool" "backend_pool" {
 
 data "azurerm_network_interface" "instance" {
   count               = "${var.num}"
-  name                = "${format("instance-%[1]d-%[2]s", count.index + 1, local.cluster_name)}-nic"
+  name                = "${format(var.hostname_format, count.index + 1, local.cluster_name)}-nic"
   resource_group_name = "${var.resource_group_name}"
 }
 
