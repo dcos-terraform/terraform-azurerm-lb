@@ -28,6 +28,7 @@ module "dcos-lbs" {
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
 | cluster\_name | Name of the DC/OS cluster | string | n/a | yes |
+| hostname\_format | Format the hostname inputs are index+1, region, cluster_name | string | n/a | yes |
 | instance\_nic\_ids | List of instance nic ids created by this module | list | n/a | yes |
 | location | Azure Region | string | n/a | yes |
 | num | How many instances should be created | string | n/a | yes |
