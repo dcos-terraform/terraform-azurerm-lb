@@ -1,0 +1,71 @@
+2019/09/03 06:57:33 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/03 06:57:33 [INFO] Go runtime version: go1.12
+2019/09/03 06:57:33 [INFO] CLI args: []string{"/bin/terraform", "init", "-upgrade"}
+2019/09/03 06:57:33 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/03 06:57:33 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/03 06:57:33 [INFO] CLI command args: []string{"init", "-upgrade"}
+2019/09/03 06:57:33 [DEBUG] command: loading backend config file: /jenkins/workspace/rraform-azurerm-lb_support_0.2.x
+2019/09/03 06:57:33 [INFO] command: empty backend config, returning nil
+2019/09/03 06:57:33 [DEBUG] command: no data state file found for backend config
+2019/09/03 06:57:33 [DEBUG] New state was assigned lineage "27c9a477-02ae-6c05-d690-d8edfc0f4fff"
+2019/09/03 06:57:33 [INFO] command: backend initialized: <nil>
+2019/09/03 06:57:33 [DEBUG] checking for provider in "."
+2019/09/03 06:57:33 [DEBUG] checking for provider in "/bin"
+2019/09/03 06:57:33 [DEBUG] checking for provisioner in "."
+2019/09/03 06:57:33 [DEBUG] checking for provisioner in "/bin"
+2019/09/03 06:57:33 [INFO] Failed to read plugin lock file .terraform/plugins/linux_amd64/lock.json: open .terraform/plugins/linux_amd64/lock.json: no such file or directory
+2019/09/03 06:57:33 [INFO] command: backend <nil> is not enhanced, wrapping in local
+2019/09/03 06:57:33 [DEBUG] checking for provider in "."
+2019/09/03 06:57:33 [DEBUG] checking for provider in "/bin"
+2019/09/03 06:57:33 [DEBUG] plugin requirements: "azurerm"=""
+2019/09/03 06:57:33 [DEBUG] fetching provider info for azurerm version 1.33.1
+2019/09/03 06:57:33 [DEBUG] getting provider "azurerm" version "1.33.1"
+2019/09/03 06:57:33 [DEBUG] plugin cache is disabled, so downloading azurerm 1.33.1 from https://releases.hashicorp.com/terraform-provider-azurerm/1.33.1/terraform-provider-azurerm_1.33.1_linux_amd64.zip?checksum=sha256:7b5597a236e36c8d2ad8f082c78ed5acc4c553c73d85ecfb90d3134d763b3e95
+2019/09/03 06:57:35 [DEBUG] looking for the azurerm 1.33.1 plugin we just installed
+2019/09/03 06:57:35 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2019/09/03 06:57:35 [DEBUG] found provider "terraform-provider-azurerm_v1.33.1_x4"
+2019/09/03 06:57:35 [DEBUG] all plugins found discovery.PluginMetaSet{discovery.PluginMeta{Name:"azurerm", Version:"1.33.1", Path:"/jenkins/workspace/rraform-azurerm-lb_support_0.2.x/.terraform/plugins/linux_amd64/terraform-provider-azurerm_v1.33.1_x4"}:struct {}{}}
+2019/09/03 06:57:35 [DEBUG] filtered plugins discovery.PluginMetaSet{discovery.PluginMeta{Name:"azurerm", Version:"1.33.1", Path:"/jenkins/workspace/rraform-azurerm-lb_support_0.2.x/.terraform/plugins/linux_amd64/terraform-provider-azurerm_v1.33.1_x4"}:struct {}{}}
+2019/09/03 06:57:35 [DEBUG] checking for provider in "."
+2019/09/03 06:57:35 [DEBUG] checking for provider in "/bin"
+2019/09/03 06:57:35 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2019/09/03 06:57:35 [DEBUG] found provider "terraform-provider-azurerm_v1.33.1_x4"
+2019/09/03 06:57:35 [DEBUG] found valid plugin: "azurerm", "1.33.1", "/jenkins/workspace/rraform-azurerm-lb_support_0.2.x/.terraform/plugins/linux_amd64/terraform-provider-azurerm_v1.33.1_x4"
+2019/09/03 06:57:35 [DEBUG] checking for provider in ".terraform/plugins/linux_amd64"
+2019/09/03 06:57:35 [DEBUG] found provider "terraform-provider-azurerm_v1.33.1_x4"
+2019/09/03 06:57:35 [DEBUG] plugin: waiting for all plugin processes to complete...
+2019/09/03 06:57:35 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/03 06:57:35 [INFO] Go runtime version: go1.12
+2019/09/03 06:57:35 [INFO] CLI args: []string{"/bin/terraform", "validate", "-check-variables=false"}
+2019/09/03 06:57:35 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/03 06:57:35 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/03 06:57:35 [INFO] CLI command args: []string{"validate", "-check-variables=false"}
+2019/09/03 06:57:35 [DEBUG] plugin: waiting for all plugin processes to complete...
+2019/09/03 06:58:31 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/03 06:58:31 [INFO] Go runtime version: go1.12
+2019/09/03 06:58:31 [INFO] CLI args: []string{"/bin/terraform", "fmt", "main.tf"}
+2019/09/03 06:58:31 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/03 06:58:31 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/03 06:58:31 [INFO] CLI command args: []string{"fmt", "main.tf"}
+2019/09/03 06:58:31 [DEBUG] plugin: waiting for all plugin processes to complete...
+2019/09/03 06:58:31 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/03 06:58:31 [INFO] Go runtime version: go1.12
+2019/09/03 06:58:31 [INFO] CLI args: []string{"/bin/terraform", "fmt", "meta.tf"}
+2019/09/03 06:58:31 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/03 06:58:31 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/03 06:58:31 [INFO] CLI command args: []string{"fmt", "meta.tf"}
+2019/09/03 06:58:31 [DEBUG] plugin: waiting for all plugin processes to complete...
+2019/09/03 06:58:31 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/03 06:58:31 [INFO] Go runtime version: go1.12
+2019/09/03 06:58:31 [INFO] CLI args: []string{"/bin/terraform", "fmt", "outputs.tf"}
+2019/09/03 06:58:31 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/03 06:58:31 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/03 06:58:31 [INFO] CLI command args: []string{"fmt", "outputs.tf"}
+2019/09/03 06:58:31 [DEBUG] plugin: waiting for all plugin processes to complete...
+2019/09/03 06:58:31 [INFO] Terraform version: 0.11.14 mesosphere 
+2019/09/03 06:58:31 [INFO] Go runtime version: go1.12
+2019/09/03 06:58:31 [INFO] CLI args: []string{"/bin/terraform", "fmt", "variables.tf"}
+2019/09/03 06:58:31 [DEBUG] Attempting to open CLI config file: /root/.terraformrc
+2019/09/03 06:58:31 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2019/09/03 06:58:31 [INFO] CLI command args: []string{"fmt", "variables.tf"}
+2019/09/03 06:58:31 [DEBUG] plugin: waiting for all plugin processes to complete...
