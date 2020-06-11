@@ -15,7 +15,7 @@ variable "lb_name_format" {
 
 variable "instance_nic_ids" {
   description = "List of instance nic ids created by this module"
-  type        = "list"
+  type        = list(string)
 }
 
 variable "resource_group_name" {
@@ -32,13 +32,13 @@ variable "num" {
 
 variable "tags" {
   description = "Add custom tags to all resources"
-  type        = "map"
+  type        = map(string)
   default     = {}
 }
 
 variable "probe" {
   description = "Main probe to check for node health"
-  type        = "map"
+  type        = map(string)
 
   default = {
     number_of_probes    = 2
@@ -68,3 +68,4 @@ variable "subnet_id" {
   description = "Subnet ID"
   default     = ""
 }
+
