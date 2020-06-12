@@ -30,7 +30,7 @@ provider "azurerm" {
 
 locals {
   cluster_name = var.name_prefix != "" ? "${var.name_prefix}-${var.cluster_name}" : var.cluster_name
-  lb_name      = format(var.lb_name_format, local.cluster_name, var.location)
+  lb_name      = format(var.lb_name_format, local.cluster_name)
   merged_tags = merge(
     var.tags,
     {
@@ -141,4 +141,3 @@ resource "azurerm_lb_probe" "load_balancer_http_probe" {
   interval_in_seconds = lookup(var.probe, "interval_in_seconds", 30)
   number_of_probes    = lookup(var.probe, "number_of_probes", 2)
 }
-
