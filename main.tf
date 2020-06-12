@@ -54,7 +54,7 @@ locals {
     },
   ]
 
-  final_rules = [coalescelist(var.rules, concat(local.default_rules, var.additional_rules))]
+  final_rules = coalescelist(var.rules, concat(local.default_rules, var.additional_rules))
 }
 
 resource "azurerm_public_ip" "public_ip" {
