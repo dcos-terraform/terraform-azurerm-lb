@@ -96,7 +96,7 @@ resource "azurerm_lb_backend_address_pool" "backend_pool" {
 }
 
 resource "azurerm_network_interface_backend_address_pool_association" "this" {
-  count                = var.num
+  count                = length(var.instance_nic_ids)
   network_interface_id = element(var.instance_nic_ids, count.index)
   ip_configuration_name = replace(
     element(
