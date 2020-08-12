@@ -111,19 +111,19 @@ resource "azurerm_network_interface_backend_address_pool_association" "this" {
 
 # Load Balancer Rule
 resource "azurerm_lb_rule" "load_balancer_rule" {
-  count               = var.num == 0 ? 0 : length(local.final_rules)
+  for_each            = { for r in local.final_rules : r["frontend_port"] => r }
   resource_group_name = var.resource_group_name
   loadbalancer_id     = azurerm_lb.load_balancer[0].id
 
-  name          = "load-balancer-rule-${local.final_rules[count.index]["frontend_port"]}"
-  protocol      = lookup(local.final_rules[count.index], "protocol", "Tcp")
-  frontend_port = local.final_rules[count.index]["frontend_port"]
+  name          = "load-balancer-rule-${each.key}"
+  protocol      = lookup(each.value, "protocol", "Tcp")
+  frontend_port = each.key
   backend_port = lookup(
-    local.final_rules[count.index],
+    each.value,
     "backend_port",
-    local.final_rules[count.index]["frontend_port"],
+    each.key,
   )
-  idle_timeout_in_minutes = lookup(local.final_rules[count.index], "idle_timeout_in_minutes", 4)
+  idle_timeout_in_minutes = lookup(each.value, "idle_timeout_in_minutes", 4)
 
   frontend_ip_configuration_name = "${local.lb_name}-public-ip-config"
   backend_address_pool_id        = azurerm_lb_backend_address_pool.backend_pool[0].id
