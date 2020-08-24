@@ -111,7 +111,7 @@ resource "azurerm_network_interface_backend_address_pool_association" "this" {
 
 # Load Balancer Rule
 resource "azurerm_lb_rule" "load_balancer_rule" {
-  for_each            = { for r in local.final_rules : r["frontend_port"] => r }
+  for_each            = { for r in local.final_rules : r["frontend_port"] => r if var.num != 0 }
   resource_group_name = var.resource_group_name
   loadbalancer_id     = azurerm_lb.load_balancer[0].id
 
